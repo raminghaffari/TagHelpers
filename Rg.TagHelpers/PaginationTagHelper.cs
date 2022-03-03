@@ -81,6 +81,12 @@
         /// <para> default : "5,10,15,20,50" </para>..
         /// </summary>
         public string RgPageSizeDropdownItems { get; set; } = $@"5,10,15,20,50";
+        /// <summary>
+        /// the boolean parameter for dark theme
+        /// if set true pagination dark mode is active
+        /// <para>defult : false</para>
+        /// </summary>
+        public bool RgDarkMode { get; set; } = false;
 
 
         #endregion
@@ -127,6 +133,13 @@
 
             //--> Row-In-Main-Div
             var Rowdiv = _utilities.Create_Tag_div("row align-items-center");
+
+            ////----> dark-mode
+            if (RgDarkMode)
+            {
+                Rowdiv.AddCssClass("pagination-dark");
+            }
+
 
             #region Page_Of_Pages
             //--> First-Col-In-Row
