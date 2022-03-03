@@ -25,6 +25,8 @@
             _utilities = new PaginationTagHelper_Utilities();
         }
 
+
+        #region setting
         /// <summary>
         /// Gets or sets the RgTotalRecord
         /// total count of record in the database
@@ -66,6 +68,18 @@
         public bool RgShowPageSizeNav { get; set; } = false;
 
         /// <summary>
+        /// Gets or sets a value indicating whether RgShowFirstLastButton
+        /// the boolean parameter for showing first page && Last page buttons or not
+        /// <para> true : Show , false : dont show </para>
+        /// <para> default : false </para>..
+        /// </summary>
+        public bool RgShowFirstLastButton { get; set; } = false;
+
+
+        #endregion
+
+        #region QueryString
+        /// <summary>
         /// Gets or sets the RgQueryStringKeyPageNo
         /// the key for current page query string
         /// <para> default = pageindex </para>
@@ -80,6 +94,8 @@
         /// <para> exampel = pageindex </para>..
         /// </summary>
         public string RgQueryStringKeyPageSize { get; set; } = "pagesize";
+        #endregion
+
 
         /// <summary>
         /// Process creating tag helper.
@@ -111,7 +127,7 @@
 
             ////----> Page-Of-Pages-In_First-Col-In-Row
             var Page_of_pages_Div = _utilities.Create_Tag_div("pagination-box");
-            Page_of_pages_Div.InnerHtml.SetContent($@"صفحه {RgPageIndex} از {Pager.TotalPages}");
+            Page_of_pages_Div.InnerHtml.SetContent($@"Page {RgPageIndex} Of {Pager.TotalPages}");
             First_col_of_row.InnerHtml.AppendHtml(Page_of_pages_Div);
             #endregion
 
@@ -130,15 +146,26 @@
 
             string PageSize_Query = $"{RgQueryStringKeyPageSize}={RgPageSize}";
 
+
+
+            //////////----------> FirstPage button
+            var FirstPageNumberLi = _utilities.Create_Tag_li_with_inner_tag_a
+                (
+                SVGIcons.Chevron_double_left,
+                $"?{RgQueryStringKeyPageNo}=1&&{PageSize_Query}",
+                "page-link",
+                "paginate_button page-item prev"
+                );
+
+            if (RgShowFirstLastButton)
+            {
+                Pagination_Ul.InnerHtml.AppendHtml(FirstPageNumberLi);
+            }
+
             //////////----------> Prev button
             var PreNumberLi = _utilities.Create_Tag_li_with_inner_tag_a
                 (
-                $@"<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'
-                   stroke='currentColor' stroke-width ='2' stroke-linecap='round' stroke-linejoin='round'
-                   class='feather feather-arrow-left'>
-                   <line x1='19' y1='12' x2='5' y2='12'></line>
-                   <polyline points='12 19 5 12 12 5'></polyline>
-                  </svg>",
+                SVGIcons.Chevron_left,
                 $"?{RgQueryStringKeyPageNo}={RgPageIndex - 1}&&{PageSize_Query}",
                 "page-link",
                 "paginate_button page-item prev"
@@ -147,10 +174,9 @@
             if (RgPageIndex == 1)
             {
                 PreNumberLi.AddCssClass("disabled");
+                FirstPageNumberLi.AddCssClass("disabled");
             }
-
             Pagination_Ul.InnerHtml.AppendHtml(PreNumberLi);
-
             ////////////-------------> Number button
             foreach (var item in Pager.Pages)
             {
@@ -171,22 +197,35 @@
 
             //////////////--------------> Next button
             var NextNumberLi = _utilities.Create_Tag_li_with_inner_tag_a(
-                $@"<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'
-                   stroke='currentColor' stroke-width ='2' stroke-linecap='round' stroke-linejoin='round'
-                   class='feather feather-arrow-right'>
-                   <line x1 ='5' y1='12' x2='19' y2='12'></line>
-                   <polyline points='12 5 19 12 12 19'></polyline>
-                  </svg>",
+                SVGIcons.Chevron_right,
                  $"?{RgQueryStringKeyPageNo}={RgPageIndex + 1}&&{PageSize_Query}",
                 "page-link",
                 "paginate_button page-item next"
                 );
 
+            Pagination_Ul.InnerHtml.AppendHtml(NextNumberLi);
+
+
+            //////////////--------------> LastPage button
+            var LastPageButton = _utilities.Create_Tag_li_with_inner_tag_a(
+                SVGIcons.Chevron_double_right,
+                 $"?{RgQueryStringKeyPageNo}={Pager.TotalPages}&&{PageSize_Query}",
+                "page-link",
+                "paginate_button page-item next"
+                );
+
+            if (RgShowFirstLastButton)
+            {
+                Pagination_Ul.InnerHtml.AppendHtml(LastPageButton);
+            }
+
+
             if (RgPageIndex == Pager.TotalPages)
             {
                 NextNumberLi.AddCssClass("disabled");
+                LastPageButton.AddCssClass("disabled");
             }
-            Pagination_Ul.InnerHtml.AppendHtml(NextNumberLi);
+
 
 
 
@@ -206,7 +245,8 @@
                 var Page_Size_Dropdown_Div = _utilities.Create_Tag_div("dropdown pagination-pagesize-btn");
 
                 //////-------->Page-Size-Lable
-                var Page_Size_Label = _utilities.Create_Tag_label("نمایش :");
+                var Page_Size_Label = _utilities.Create_Tag_label("PageSize :");
+                Page_Size_Dropdown_Div.InnerHtml.AppendHtml(Page_Size_Label);
 
                 ////////-------->Page-Size-Dropdown-Btn
                 var Page_Size_DropDown_Btn = _utilities.Create_Tag_button

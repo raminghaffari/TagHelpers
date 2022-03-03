@@ -1,0 +1,146 @@
+/*
+	===============================
+			@Import	Function
+	===============================
+*/
+/*
+	===============================
+			@Import	Mixins
+	===============================
+*/
+/*
+    ============================
+        Pagination container
+    =============================
+*/
+.paginating-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+    .paginating-container .prev svg, .paginating-container .next svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .paginating-container .pagination {
+        margin-bottom: 0;
+    }
+
+    .paginating-container li {
+        font-weight: 600;
+        color: #3b3f5c;
+        border-radius: 4px;
+        box-shadow: 0px 5px 20px 0 rgba(0, 0, 0, 0.1);
+    }
+
+        .paginating-container li a {
+            padding: 10px 15px;
+            font-weight: 600;
+            color: #3b3f5c;
+        }
+
+    .paginating-container li {
+        margin-left: 4px;
+        margin-top: 4px;
+    }
+/* 
+    Solid Style
+*/
+.pagination-solid li {
+    background-color: #e0e6ed;
+}
+
+    .pagination-solid li:hover a {
+        color: #1b55e2;
+    }
+
+    .pagination-solid li.active {
+        color: #fff;
+    }
+
+        .pagination-solid li a.active:hover, .pagination-solid li.active a {
+            color: #fff;
+        }
+
+.pagination-solid .prev {
+    background-color: #e0e6ed;
+}
+
+    .pagination-solid .prev:hover {
+        background-color: #1b55e2;
+    }
+
+    .pagination-solid .prev:not(.disabled) hover a, .pagination-solid .prev:not(.disabled) hover svg {
+        color: #1b55e2;
+    }
+
+
+.pagination-solid .next {
+    background-color: #e0e6ed;
+}
+
+    .pagination-solid .next:hover {
+        background-color: #1b55e2;
+    }
+
+    .pagination-solid .next:not(.disabled) hover a, .pagination-solid .next:not(.disabled) hover svg {
+        color: #1b55e2;
+    }
+
+
+
+/*    
+    ===================
+        Pagination-PageSize-Btn
+    ===================
+*/
+
+.pagination-pagesize-btn label {
+    color: #3b3f5c;
+    font-weight: 600;
+    padding: 5px !important;
+}
+
+.pagination-pagesize-btn .page-size-btn {
+    margin: 4px 0px;
+    padding: 10px 20px !important;
+    font-weight: 600;
+    background-color: #fff;
+    color: #3b3f5c;
+    border: .5px solid rgb(169 165 165 / 0.58);
+    border-radius: 4px;
+    box-shadow: 0px 5px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+    .pagination-pageSize-btn .page-size-btn :hover {
+        color: #1b55e2;
+        background-color: #3b3f5c !important;
+    }
+
+    .pagination-pageSize-btn .page-size-btn a {
+        contain-intrinsic-size: inherit;
+    }
+
+.pagination-pagesize-droodown {
+    min-width: 0px;
+    text-align: center;
+}
+
+/*    
+    ===================
+        Pagination-Box
+    ===================
+*/
+
+.pagination-box {
+    margin: 4px 0px;
+    padding: 15px 0px;
+    font-weight: 600;
+    background-color: #fff;
+    color: #3b3f5c;
+    border: .5px solid rgb(169 165 165 / 0.58);
+    border-radius: 4px;
+    box-shadow: 0px 5px 20px 0 rgba(0, 0, 0, 0.1);
+}
