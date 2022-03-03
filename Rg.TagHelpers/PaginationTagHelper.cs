@@ -75,6 +75,13 @@
         /// </summary>
         public bool RgShowFirstLastButton { get; set; } = false;
 
+        /// <summary>
+        /// get string number list like example and set in page size dropdown item
+        /// <para> exaple : "5,10,15,20,50" </para>
+        /// <para> default : "5,10,15,20,50" </para>..
+        /// </summary>
+        public string RgPageSizeDropdownItems { get; set; } = $@"5,10,15,20,50";
+
 
         #endregion
 
@@ -267,20 +274,33 @@
 
 
 
-                //////////-->Page-Size-SelectList-Option
+                //////////-->Page-Size-Dropdown-items
 
-                var Page_Size_Dropdown_menu_Div = _utilities.Create_Tag_div("dropdown-menu pagination-pagesize-droodown");
+                var Page_Size_Dropdown_menu_Div = _utilities.Create_Tag_div("dropdown-menu pagination-pagesize-dropdown");
                 Page_Size_Dropdown_menu_Div.MergeAttribute("aria-labelledby", "Page-Size-Menu");
 
-                var PageSize_List = new List<int> { 5, 10, 15, 20, 50 };
-
-                if (!PageSize_List.Contains(RgPageSize))
+                List<int> PageSize_Item_List = new List<int>();
+                try
                 {
-                    PageSize_List.Add(RgPageSize);
+                    foreach (var item in RgPageSizeDropdownItems.Split(","))
+                    {
+                        PageSize_Item_List.Add(int.Parse(item));
+                    }
                 }
-                foreach (var item in PageSize_List)
+                catch (System.Exception)
                 {
-                    var Page_Size_Dropdown_menu_Item = _utilities.Create_Tag_a("dropdown-item", "#", item.ToString());
+                    PageSize_Item_List = new List<int>() { 5, 10, 15, 20, 50 };
+                }
+
+                if (!PageSize_Item_List.Contains(RgPageSize))
+                {
+                    PageSize_Item_List.Add(RgPageSize);
+                }
+
+                PageSize_Item_List.Sort();
+                foreach (var item in PageSize_Item_List)
+                {
+                    var Page_Size_Dropdown_menu_Item = _utilities.Create_Tag_a("dropdown-item", $"?{RgQueryStringKeyPageSize}={item}", item.ToString());
                     Page_Size_Dropdown_menu_Div.InnerHtml.AppendHtml(Page_Size_Dropdown_menu_Item);
                 }
 
