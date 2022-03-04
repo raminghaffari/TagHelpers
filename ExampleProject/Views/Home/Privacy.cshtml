@@ -1,6 +1,32 @@
-﻿@{
+﻿@using Rg.TagHelpers;
+@addTagHelper *, Rg.TagHelpers
+
+
+@{
     ViewData["Title"] = "Privacy Policy";
 }
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
+
+
+<div class="col-xl-12 col-lg-12 col-sm-12 layout-spacing">
+    <div class="statbox widget box box-shadow">
+        <div class="widget-content widget-content-area text-center">
+            <Paging-Tag rg-total-record="100"
+                        rg-page-index="1"
+                        rg-page-size="10"
+                        rg-max-page="5"
+                        rg-query-string-key-page-no="Page"
+                        rg-query-string-key-page-size="PageSize"
+                        rg-show-page-size-nav="true"
+                        rg-show-first-last-button="true"
+                        rg-page-size-dropdown-items="3,5,8,11,14"
+                        rg-dark-mode="true"
+                        rg-page-size-label-text="نمایش"
+                        rg-page-of-pages-text="صفحه,از"
+                        rg-rtl-direction="true">
+            </Paging-Tag>
+        </div>
+    </div>
+</div>

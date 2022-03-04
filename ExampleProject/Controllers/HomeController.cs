@@ -1,6 +1,7 @@
 ﻿using ExampleProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Rg.TagHelpers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -25,6 +26,7 @@ namespace ExampleProject.Controllers
 
         public IActionResult Privacy()
         {
+
             return View();
         }
 

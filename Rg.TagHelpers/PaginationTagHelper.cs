@@ -1,7 +1,9 @@
 ﻿namespace Rg.TagHelpers
 {
     using Microsoft.AspNetCore.Html;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc.Rendering;
+    using Microsoft.AspNetCore.Mvc.ViewFeatures;
     using Microsoft.AspNetCore.Razor.TagHelpers;
     using Rg.TagHelpers.Utilities;
     using System.Collections.Generic;
@@ -12,6 +14,12 @@
     [HtmlTargetElement("Paging-Tag")]
     public class PaginationTagHelper : TagHelper
     {
+        [ViewContext]
+        public ViewContext ViewContext { get; set; }
+
+        protected HttpContext HttpContext => ViewContext.HttpContext;
+
+
         /// <summary>
         /// Defines the _utilities.
         /// </summary>
@@ -154,6 +162,7 @@
         {
             PaginationPager Pager = new PaginationPager(RgTotalRecord, RgPageIndex, RgPageSize, RgMaxPage);
 
+
             string content = "";
 
             //--> svg-icon
@@ -226,7 +235,7 @@
             var FirstPageNumberLi = _utilities.Create_Tag_li_with_inner_tag_a
                 (
                 FirstPageNumberLi_Icon,
-                $"?{RgQueryStringKeyPageNo}=1&&{PageSize_Query}",
+                $"{CreateUrl()}{RgQueryStringKeyPageNo}=1&&{PageSize_Query}",
                 "page-link",
                 "paginate_button page-item prev"
                 );
@@ -240,7 +249,7 @@
             var PreNumberLi = _utilities.Create_Tag_li_with_inner_tag_a
                 (
                 PrevPageNumberLi_Icon,
-                $"?{RgQueryStringKeyPageNo}={RgPageIndex - 1}&&{PageSize_Query}",
+                $"{CreateUrl()}{RgQueryStringKeyPageNo}={RgPageIndex - 1}&&{PageSize_Query}",
                 "page-link",
                 "paginate_button page-item prev"
                 );
@@ -257,7 +266,7 @@
                 var NumberLi = _utilities.Create_Tag_li_with_inner_tag_a
                     (
                      $"{item}",
-                     $"?{RgQueryStringKeyPageNo}={item}&&{PageSize_Query}",
+                     $"{CreateUrl()}{RgQueryStringKeyPageNo}={item}&&{PageSize_Query}",
                      "page-link",
                      "paginate_button page-item "
                     );
@@ -272,7 +281,7 @@
             //////////////--------------> Next button
             var NextNumberLi = _utilities.Create_Tag_li_with_inner_tag_a(
                 NextPageNumberLi_Icon,
-                 $"?{RgQueryStringKeyPageNo}={RgPageIndex + 1}&&{PageSize_Query}",
+                $"{CreateUrl()}{RgQueryStringKeyPageNo}={RgPageIndex + 1}&&{PageSize_Query}",
                 "page-link",
                 "paginate_button page-item next"
                 );
@@ -283,7 +292,7 @@
             //////////////--------------> LastPage button
             var LastPageButton = _utilities.Create_Tag_li_with_inner_tag_a(
                 LastPageNumberLi_Icon,
-                 $"?{RgQueryStringKeyPageNo}={Pager.TotalPages}&&{PageSize_Query}",
+                $"{CreateUrl()}{RgQueryStringKeyPageNo}={Pager.TotalPages}&&{PageSize_Query}",
                 "page-link",
                 "paginate_button page-item next"
                 );
@@ -367,7 +376,7 @@
                 PageSize_Item_List.Sort();
                 foreach (var item in PageSize_Item_List)
                 {
-                    var Page_Size_Dropdown_menu_Item = _utilities.Create_Tag_a("dropdown-item", $"?{RgQueryStringKeyPageSize}={item}", item.ToString());
+                    var Page_Size_Dropdown_menu_Item = _utilities.Create_Tag_a("dropdown-item", $"{CreateUrl()}{RgQueryStringKeyPageSize}={item}", item.ToString());
                     Page_Size_Dropdown_menu_Div.InnerHtml.AppendHtml(Page_Size_Dropdown_menu_Item);
                 }
 
@@ -387,6 +396,28 @@
             content = content + _utilities.ConvertHtmlToString(Rowdiv);
             return content;
 
+        }
+
+
+        public string CreateUrl()
+        {
+
+            string path = HttpContext.Request.Path.Value;
+            path = (path == "/") ? "" : path;
+
+            string querystring = "";
+
+            foreach (var item in HttpContext.Request.Query)
+            {
+                if (item.Key != RgQueryStringKeyPageNo && item.Key != RgQueryStringKeyPageSize)
+                {
+                    querystring = querystring + $"{item.Key}={item.Value}&";
+                }
+            }
+
+            string returnurl = $"{path}?{querystring}";
+
+            return returnurl;
         }
     }
 }
