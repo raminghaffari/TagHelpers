@@ -102,6 +102,13 @@
         /// <para>defult : false</para>
         /// </summary>
         public bool RgRtlDirection { get; set; } = false;
+
+        /// <summary>
+        /// The number display format for page numbers. Use a list of numbers splitted by space e.g. "0 1 2 3 4 5 6 7 8 9" or use one from a pre-defined numbers formats in :
+        /// <see cref="Rg.TagHelpers.Utilities.NumberFormats"/>
+        /// <para> defult : defult (system defult numbering)</para>
+        /// </summary>
+        public string RgNumberFormat { get; set; } = NumberFormats.Default.ToString();
         #endregion
 
         #region text
@@ -162,8 +169,15 @@
         {
             PaginationPager Pager = new PaginationPager(RgTotalRecord, RgPageIndex, RgPageSize, RgMaxPage);
 
-
             string content = "";
+
+            ////----> number-Format
+            var NumberFormatField = typeof(NumberFormats).GetField(RgNumberFormat);
+            string number_target_format = (NumberFormatField == null) ? NumberFormats.Default : NumberFormatField.GetValue(null).ToString();
+
+            string PageIndex = NumberFormats.ToNumberFormat(RgPageIndex, number_target_format);
+            string PageSize = NumberFormats.ToNumberFormat(RgPageSize, number_target_format);
+            string TotalPage = NumberFormats.ToNumberFormat(Pager.TotalPages, number_target_format);
 
             //--> svg-icon
             var FirstPageNumberLi_Icon = SVGIcons.Chevron_double_left;
@@ -203,12 +217,12 @@
 
             try
             {
-                Page_of_pages_Div.InnerHtml.SetContent($@"{Page_of_Pages_text[0]} {RgPageIndex} {Page_of_Pages_text[1]} {Pager.TotalPages}");
+                Page_of_pages_Div.InnerHtml.SetContent($@"{Page_of_Pages_text[0]} {PageIndex} {Page_of_Pages_text[1]} {TotalPage}");
             }
             catch (System.Exception)
             {
 
-                Page_of_pages_Div.InnerHtml.SetContent($@"Page {RgPageIndex} Of {Pager.TotalPages}");
+                Page_of_pages_Div.InnerHtml.SetContent($@"Page {PageIndex} Of {TotalPage}");
             }
 
             First_col_of_row.InnerHtml.AppendHtml(Page_of_pages_Div);
@@ -265,7 +279,7 @@
             {
                 var NumberLi = _utilities.Create_Tag_li_with_inner_tag_a
                     (
-                     $"{item}",
+                     NumberFormats.ToNumberFormat(item, number_target_format),
                      $"{CreateUrl()}{RgQueryStringKeyPageNo}={item}&&{PageSize_Query}",
                      "page-link",
                      "paginate_button page-item "
@@ -344,7 +358,7 @@
                         { "aria-expanded", "false"},
 
                     },
-                    $"{ RgPageSize}"
+                    PageSize
                     );
                 Page_Size_Dropdown_Div.InnerHtml.AppendHtml(Page_Size_DropDown_Btn);
 
@@ -376,7 +390,7 @@
                 PageSize_Item_List.Sort();
                 foreach (var item in PageSize_Item_List)
                 {
-                    var Page_Size_Dropdown_menu_Item = _utilities.Create_Tag_a("dropdown-item", $"{CreateUrl()}{RgQueryStringKeyPageSize}={item}", item.ToString());
+                    var Page_Size_Dropdown_menu_Item = _utilities.Create_Tag_a("dropdown-item", $"{CreateUrl()}{RgQueryStringKeyPageSize}={item}", NumberFormats.ToNumberFormat(item, number_target_format));
                     Page_Size_Dropdown_menu_Div.InnerHtml.AppendHtml(Page_Size_Dropdown_menu_Item);
                 }
 
