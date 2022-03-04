@@ -1,24 +1,49 @@
 ﻿@using Rg.TagHelpers;
+@using ExampleProject.Controllers
 @addTagHelper *, Rg.TagHelpers
-
+@model paginateddto
 @{
     ViewData["Title"] = "Home Page";
 }
 
 
-
-
-
-
 <div class="col-xl-12 col-lg-12 col-sm-12 layout-spacing">
     <div class="statbox widget box box-shadow">
         <div class="widget-content widget-content-area text-center">
-            <Paging-Tag rg-total-record="100"
-                        rg-page-index="5"
-                        rg-page-size="10"
+            <div class="row" style="direction:rtl;">
+                <div class="col-sm-12">
+                    <table class="table table-hover" style="width:100%" role="grid">
+
+                        <thead>
+                            <tr class="row">
+                                <td rowspan="1" colspan="1">آیدی</td>
+                                <td rowspan="1" colspan="1">نام</td>
+                                <td rowspan="1" colspan="1">نام خانوادگی</td>
+                                <td rowspan="1" colspan="1">موبایل</td>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Humen)
+                            {
+                                <tr class="row">
+                                    <td>@item.Id</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Family</td>
+                                    <td>@item.phonenumber</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <Paging-Tag rg-total-record="@Model.totalrow"
+                        rg-page-index="@Model.pageindex"
+                        rg-page-size="@Model.pagesize"
                         rg-max-page="5"
-                        rg-query-string-key-page-no="Page"
-                        rg-query-string-key-page-size="PageSize"
+                        rg-query-string-key-page-no="pageindex"
+                        rg-query-string-key-page-size="pagesize"
                         rg-show-page-size-nav="true"
                         rg-show-first-last-button="true"
                         rg-page-size-dropdown-items="3,5,8,11,14"
