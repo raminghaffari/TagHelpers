@@ -88,6 +88,31 @@
         /// </summary>
         public bool RgDarkMode { get; set; } = false;
 
+        /// <summary>
+        /// the boolean parameter for set rtl direction
+        /// if set true pagination rtl direction is active
+        /// <para>defult : false</para>
+        /// </summary>
+        public bool RgRtlDirection { get; set; } = false;
+        #endregion
+
+        #region text
+        /// <summary>
+        /// Gets or sets the RgPageSizeLabelText
+        /// text of pagesize label 
+        /// <para> default = "PageSize" </para>
+        /// <para> exampel = "PageSize" </para>..
+        /// </summary>
+        public string RgPageSizeLabelText { get; set; } = "PageSize";
+
+        /// <summary>
+        /// Gets or sets the RgPageOfPagesText
+        /// text for Page Of Pages box
+        /// <para> default = "Page,Of" </para>
+        /// <para> exampel = "Page,Of" </para>..
+        /// </summary>
+        public string RgPageOfPagesText { get; set; } = "Page,Of";
+
 
         #endregion
 
@@ -131,6 +156,14 @@
 
             string content = "";
 
+            //--> svg-icon
+            var FirstPageNumberLi_Icon = SVGIcons.Chevron_double_left;
+            var LastPageNumberLi_Icon = SVGIcons.Chevron_double_right;
+            var PrevPageNumberLi_Icon = SVGIcons.Chevron_left;
+            var NextPageNumberLi_Icon = SVGIcons.Chevron_right;
+
+
+
             //--> Row-In-Main-Div
             var Rowdiv = _utilities.Create_Tag_div("row align-items-center");
 
@@ -140,6 +173,15 @@
                 Rowdiv.AddCssClass("pagination-dark");
             }
 
+            //////------> rtl-direction
+            if (RgRtlDirection)
+            {
+                Rowdiv.AddCssClass("rtldirection");
+                FirstPageNumberLi_Icon = SVGIcons.Chevron_double_right;
+                LastPageNumberLi_Icon = SVGIcons.Chevron_double_left;
+                PrevPageNumberLi_Icon = SVGIcons.Chevron_right;
+                NextPageNumberLi_Icon = SVGIcons.Chevron_left;
+            }
 
             #region Page_Of_Pages
             //--> First-Col-In-Row
@@ -147,7 +189,19 @@
 
             ////----> Page-Of-Pages-In_First-Col-In-Row
             var Page_of_pages_Div = _utilities.Create_Tag_div("pagination-box");
-            Page_of_pages_Div.InnerHtml.SetContent($@"Page {RgPageIndex} Of {Pager.TotalPages}");
+
+            var Page_of_Pages_text = RgPageOfPagesText.Split(",");
+
+            try
+            {
+                Page_of_pages_Div.InnerHtml.SetContent($@"{Page_of_Pages_text[0]} {RgPageIndex} {Page_of_Pages_text[1]} {Pager.TotalPages}");
+            }
+            catch (System.Exception)
+            {
+
+                Page_of_pages_Div.InnerHtml.SetContent($@"Page {RgPageIndex} Of {Pager.TotalPages}");
+            }
+
             First_col_of_row.InnerHtml.AppendHtml(Page_of_pages_Div);
             #endregion
 
@@ -171,7 +225,7 @@
             //////////----------> FirstPage button
             var FirstPageNumberLi = _utilities.Create_Tag_li_with_inner_tag_a
                 (
-                SVGIcons.Chevron_double_left,
+                FirstPageNumberLi_Icon,
                 $"?{RgQueryStringKeyPageNo}=1&&{PageSize_Query}",
                 "page-link",
                 "paginate_button page-item prev"
@@ -185,7 +239,7 @@
             //////////----------> Prev button
             var PreNumberLi = _utilities.Create_Tag_li_with_inner_tag_a
                 (
-                SVGIcons.Chevron_left,
+                PrevPageNumberLi_Icon,
                 $"?{RgQueryStringKeyPageNo}={RgPageIndex - 1}&&{PageSize_Query}",
                 "page-link",
                 "paginate_button page-item prev"
@@ -217,7 +271,7 @@
 
             //////////////--------------> Next button
             var NextNumberLi = _utilities.Create_Tag_li_with_inner_tag_a(
-                SVGIcons.Chevron_right,
+                NextPageNumberLi_Icon,
                  $"?{RgQueryStringKeyPageNo}={RgPageIndex + 1}&&{PageSize_Query}",
                 "page-link",
                 "paginate_button page-item next"
@@ -228,7 +282,7 @@
 
             //////////////--------------> LastPage button
             var LastPageButton = _utilities.Create_Tag_li_with_inner_tag_a(
-                SVGIcons.Chevron_double_right,
+                LastPageNumberLi_Icon,
                  $"?{RgQueryStringKeyPageNo}={Pager.TotalPages}&&{PageSize_Query}",
                 "page-link",
                 "paginate_button page-item next"
@@ -265,7 +319,7 @@
                 var Page_Size_Dropdown_Div = _utilities.Create_Tag_div("dropdown pagination-pagesize-btn");
 
                 //////-------->Page-Size-Lable
-                var Page_Size_Label = _utilities.Create_Tag_label("PageSize :");
+                var Page_Size_Label = _utilities.Create_Tag_label($"{RgPageSizeLabelText} :");
                 Page_Size_Dropdown_Div.InnerHtml.AppendHtml(Page_Size_Label);
 
                 ////////-------->Page-Size-Dropdown-Btn
@@ -325,11 +379,11 @@
 
             #endregion
 
-
             ///-----> Merg All Col
             Rowdiv.InnerHtml.AppendHtml(First_col_of_row);
             Rowdiv.InnerHtml.AppendHtml(Second_col_of_row);
             Rowdiv.InnerHtml.AppendHtml(Third_col_of_row);
+
             content = content + _utilities.ConvertHtmlToString(Rowdiv);
             return content;
 
