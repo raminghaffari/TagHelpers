@@ -1,5 +1,5 @@
 ﻿@using Rg.TagHelpers;
-@using ExampleProject.Controllers
+@using ExampleProject.Models
 @addTagHelper *, Rg.TagHelpers
 @model paginateddto
 @{
@@ -14,20 +14,21 @@
                 <div class="col-sm-12">
                     <table class="table table-hover" style="width:100%" role="grid">
 
+
                         <thead>
-                            <tr class="row">
-                                <td rowspan="1" colspan="1">آیدی</td>
-                                <td rowspan="1" colspan="1">نام</td>
-                                <td rowspan="1" colspan="1">نام خانوادگی</td>
-                                <td rowspan="1" colspan="1">موبایل</td>
+                            <tr>
+                                <th scope="col">آیدی</th>
+                                <th scope="col">نام</th>
+                                <th scop="col">نام خانوادگی</th>
+                                <th scop="col">موبایل</th>
 
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model.Humen)
                             {
-                                <tr class="row">
-                                    <td>@item.Id</td>
+                                <tr>
+                                    <th scope="row">@item.Id</th>
                                     <td>@item.Name</td>
                                     <td>@item.Family</td>
                                     <td>@item.phonenumber</td>
@@ -35,6 +36,7 @@
                             }
                         </tbody>
                     </table>
+
                 </div>
             </div>
 

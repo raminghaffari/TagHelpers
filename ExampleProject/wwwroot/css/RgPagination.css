@@ -123,6 +123,11 @@
         color: var(--text-hover-color);
     }
 
+.pagination-solid .page-item.disabled .page-link {
+    background-color: var(--page-link-bgcolor);
+    border-color: var(--page-link-bordercolor);
+}
+
 .pagination-solid .page-item .page-link {
     background-color: var(--page-link-bgcolor);
     border-color: var(--page-link-bordercolor);
@@ -171,9 +176,9 @@
     }
 
 .pagination-pagesize-dropdown {
-    min-width: 0px;
-    text-align: center;
-    background-color: var(--bgcolor);
+    min-width: 60px !important;
+    text-align: center !important;
+    background-color: var(--bgcolor) !important;
 }
 
     .pagination-pagesize-dropdown .dropdown-item {
@@ -199,6 +204,6 @@
     box-shadow: 0px 5px 20px 0 var(--boxshadowcolor);
 }
 
-.row.rtldirection {
+.rtldirection {
     direction: rtl;
 }

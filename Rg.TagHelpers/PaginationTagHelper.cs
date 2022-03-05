@@ -109,6 +109,11 @@
         /// <para> defult : defult (system defult numbering)</para>
         /// </summary>
         public string RgNumberFormat { get; set; } = NumberFormats.Default.ToString();
+        /// <summary>
+        /// select bootstrap version
+        /// <para> defult = bootstrap 4</para>
+        /// </summary>
+        public RenderMode RgRenderMode { get; set; } = RenderMode.Bootstrap4;
         #endregion
 
         #region text
@@ -346,18 +351,32 @@
                 Page_Size_Dropdown_Div.InnerHtml.AppendHtml(Page_Size_Label);
 
                 ////////-------->Page-Size-Dropdown-Btn
-                var Page_Size_DropDown_Btn = _utilities.Create_Tag_button
-                    (
+                ///
 
-                    "page-size-btn btn dropdown-toggle",
-                    new Dictionary<string, string> {
+                Dictionary<string, string> Page_Size_DropDown_Btn_Attr = new Dictionary<string, string> {
                         { "type", "button" },
                         {"id", "Page-Size-Menu"},
                         {"data-toggle", "dropdown"},
                         {"aria-haspopup", "true"},
                         { "aria-expanded", "false"},
 
-                    },
+                    };
+
+                if (RgRenderMode == RenderMode.Bootstrap5)
+                {
+                    Page_Size_DropDown_Btn_Attr = new Dictionary<string, string> {
+                        { "type", "button" },
+                        {"id", "Page-Size-Menu"},
+                        {"data-bs-toggle", "dropdown"},
+                        { "aria-expanded", "false"},
+                    };
+                }
+
+                var Page_Size_DropDown_Btn = _utilities.Create_Tag_button
+                    (
+
+                    "page-size-btn btn dropdown-toggle",
+                    Page_Size_DropDown_Btn_Attr,
                     PageSize
                     );
                 Page_Size_Dropdown_Div.InnerHtml.AppendHtml(Page_Size_DropDown_Btn);
@@ -365,8 +384,11 @@
 
 
                 //////////-->Page-Size-Dropdown-items
-
                 var Page_Size_Dropdown_menu_Div = _utilities.Create_Tag_div("dropdown-menu pagination-pagesize-dropdown");
+                if (RgRenderMode == RenderMode.Bootstrap5)
+                {
+                    Page_Size_Dropdown_menu_Div = _utilities.Create_Tag_ul("dropdown-menu pagination-pagesize-dropdown");
+                }
                 Page_Size_Dropdown_menu_Div.MergeAttribute("aria-labelledby", "Page-Size-Menu");
 
                 List<int> PageSize_Item_List = new List<int>();
@@ -391,6 +413,11 @@
                 foreach (var item in PageSize_Item_List)
                 {
                     var Page_Size_Dropdown_menu_Item = _utilities.Create_Tag_a("dropdown-item", $"{CreateUrl()}{RgQueryStringKeyPageSize}={item}", NumberFormats.ToNumberFormat(item, number_target_format));
+                    if (RgRenderMode == RenderMode.Bootstrap5)
+                    {
+                        Page_Size_Dropdown_menu_Item = _utilities.Create_Tag_li_with_inner_tag_a(NumberFormats.ToNumberFormat(item, number_target_format), $"{CreateUrl()}{RgQueryStringKeyPageSize}={item}",
+                            "dropdown-item", "");
+                    }
                     Page_Size_Dropdown_menu_Div.InnerHtml.AppendHtml(Page_Size_Dropdown_menu_Item);
                 }
 

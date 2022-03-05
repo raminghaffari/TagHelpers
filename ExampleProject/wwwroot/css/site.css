@@ -95,6 +95,10 @@ body {
 
 .layout-spacing {
     background-color: #000000;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 .table {
