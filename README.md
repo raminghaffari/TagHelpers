@@ -12,8 +12,8 @@ Create a pagination control styled with bootstrap 4.x && 5.x using simple html t
 
 Dark Mode
 
-![PagingTagHelper default](https://github.com/raminghaffari/upload/blob/main/taghelper/paginationdarkmode.png)
+![PagingTagHelper default](https://raw.githubusercontent.com/raminghaffari/upload/main/taghelper/paginationdarkmode.png)
 
 Persian Language And RTL Direction
 
-![PagingTagHelper default](https://github.com/raminghaffari/upload/blob/main/taghelper/paginationlightmode.png)
+![PagingTagHelper default](https://raw.githubusercontent.com/raminghaffari/upload/main/taghelper/paginationlightmode.png)
