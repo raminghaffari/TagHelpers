@@ -39,7 +39,7 @@
         /// Gets or sets the RgTotalRecord
         /// total count of record in the database
         /// <para> default = 100 </para>
-        /// <para> exampel = 100 </para>..
+        /// <para> example = 100 </para>..
         /// </summary>
         public long RgTotalRecord { get; set; } = 100;
 
@@ -47,7 +47,7 @@
         /// Gets or sets the RgPageIndex
         /// current page number
         /// <para> default = 1 </para>
-        /// <para> exampel = 1 </para>..
+        /// <para> example = 1 </para>..
         /// </summary>
         public int RgPageIndex { get; set; } = 1;
 
@@ -55,7 +55,7 @@
         /// Gets or sets the RgPageSize
         /// how many item want get from database per page
         /// <para> default = 20 </para>
-        /// <para> exampel = 20 </para>..
+        /// <para> example = 20 </para>..
         /// </summary>
         public int RgPageSize { get; set; } = 20;
 
@@ -63,13 +63,20 @@
         /// Gets or sets the RgMaxPage
         /// how many active page number icon want show in pagination UI 
         /// <para> default = 5 </para>
-        /// <para> exampel = 5 </para>..
+        /// <para> example = 5 </para>..
         /// </summary>
         public int RgMaxPage { get; set; } = 5;
 
         /// <summary>
         /// Gets or sets a value indicating whether RgShowPageSizeNav
         /// the boolean parameter for showing page size navbar or not
+        /// <para> true : Show , false : dont show </para>
+        /// <para> default : false </para>..
+        /// </summary>
+        public bool RgShowPageOfPagesBox { get; set; } = false;
+        /// <summary>
+        /// Gets or sets a value indicating whether RgShowPageSizeNav
+        /// the boolean parameter for showing page of page box or not
         /// <para> true : Show , false : dont show </para>
         /// <para> default : false </para>..
         /// </summary>
@@ -121,7 +128,7 @@
         /// Gets or sets the RgPageSizeLabelText
         /// text of pagesize label 
         /// <para> default = "PageSize" </para>
-        /// <para> exampel = "PageSize" </para>..
+        /// <para> example = "PageSize" </para>..
         /// </summary>
         public string RgPageSizeLabelText { get; set; } = "PageSize";
 
@@ -129,7 +136,7 @@
         /// Gets or sets the RgPageOfPagesText
         /// text for Page Of Pages box
         /// <para> default = "Page,Of" </para>
-        /// <para> exampel = "Page,Of" </para>..
+        /// <para> example = "Page,Of" </para>..
         /// </summary>
         public string RgPageOfPagesText { get; set; } = "Page,Of";
 
@@ -141,7 +148,7 @@
         /// Gets or sets the RgQueryStringKeyPageNo
         /// the key for current page query string
         /// <para> default = pageindex </para>
-        /// <para> exampel = pageindex </para>..
+        /// <para> example = pageindex </para>..
         /// </summary>
         public string RgQueryStringKeyPageNo { get; set; } = "pageindex";
 
@@ -149,7 +156,7 @@
         /// Gets or sets the RgQueryStringKeyPageSize
         /// the key for pagesize query string
         /// <para> default = pageindex </para>
-        /// <para> exampel = pageindex </para>..
+        /// <para> example = pageindex </para>..
         /// </summary>
         public string RgQueryStringKeyPageSize { get; set; } = "pagesize";
         #endregion
@@ -215,22 +222,25 @@
             //--> First-Col-In-Row
             var First_col_of_row = _utilities.Create_Tag_div("col-sm-12 col-md-2");
 
-            ////----> Page-Of-Pages-In_First-Col-In-Row
-            var Page_of_pages_Div = _utilities.Create_Tag_div("pagination-box");
-
-            var Page_of_Pages_text = RgPageOfPagesText.Split(",");
-
-            try
+            if (RgShowPageOfPagesBox)
             {
-                Page_of_pages_Div.InnerHtml.SetContent($@"{Page_of_Pages_text[0]} {PageIndex} {Page_of_Pages_text[1]} {TotalPage}");
-            }
-            catch (System.Exception)
-            {
+                ////----> Page-Of-Pages-In_First-Col-In-Row
+                var Page_of_pages_Div = _utilities.Create_Tag_div("pagination-box");
 
-                Page_of_pages_Div.InnerHtml.SetContent($@"Page {PageIndex} Of {TotalPage}");
-            }
+                var Page_of_Pages_text = RgPageOfPagesText.Split(",");
 
-            First_col_of_row.InnerHtml.AppendHtml(Page_of_pages_Div);
+                try
+                {
+                    Page_of_pages_Div.InnerHtml.SetContent($@"{Page_of_Pages_text[0]} {PageIndex} {Page_of_Pages_text[1]} {TotalPage}");
+                }
+                catch (System.Exception)
+                {
+
+                    Page_of_pages_Div.InnerHtml.SetContent($@"Page {PageIndex} Of {TotalPage}");
+                }
+
+                First_col_of_row.InnerHtml.AppendHtml(Page_of_pages_Div);
+            }
             #endregion
 
             #region Paginat_Number

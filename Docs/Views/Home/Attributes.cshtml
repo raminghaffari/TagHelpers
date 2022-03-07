@@ -1,0 +1,212 @@
+﻿
+@{
+    ViewData["Title"] = "Pagination TagHelper Attributes";
+}
+
+<div class="card card-custom card-stretch bg-gray-300" id="kt_page_stretched_card">
+    <div class="card-header border-dark">
+        <div class="card-title">
+            <h2 class="card-label mr-0">Pagination TagHelper</h2>
+            <div class="mb-0 mt-9">
+                <p style="font-size:15px;">
+                    <em class="font-weight-bolder">
+                        By
+                        <a href="https://github.com/raminghaffari" class="text-warning strokeme">Ramin Ghaffari</a>
+                    </em>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="card-scroll">
+            <h1 class="font-weight-bolder"> Required Attribute</h1>
+            <hr />
+            <table class="table table-bordered border-2 border-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="border-light">Attribute Name</th>
+                        <th class="border-light">Value Type</th>
+                        <th class="border-light">Default Value</th>
+                        <th class="border-light">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">rg-total-record</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">long</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">100</code></td>
+                        <td class="border-dark">total count of record in database</td>
+                    </tr>
+                    <tr>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">rg-page-index</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">int</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">1</code></td>
+                        <td class="border-dark">current page number</td>
+                    </tr>
+                    <tr>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">rg-page-size</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">int</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">20</code></td>
+                        <td class="border-dark">items get from database per page</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <h1 class="font-weight-bolder"> Optional Attributes</h1>
+            <hr />
+
+            <table class="table table-bordered border-2 border-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="border-light">Attribute Name</th>
+                        <th class="border-light">Value Type</th>
+                        <th class="border-light">Default Value</th>
+                        <th class="border-light">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">rg-max-page</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">int</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">5</code></td>
+                        <td class="border-dark">number of page number icon displayed in pagination</td>
+                    </tr>
+                    <tr>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">rg-page-size-dropdown-items</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">string</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">5,10,15,20,50</code></td>
+                        <td class="border-dark">pagesize dropdown items</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <h1 class="font-weight-bolder"> Display Attributes</h1>
+            <hr />
+            <table class="table table-bordered border-2 border-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="border-light">Attribute Name</th>
+                        <th class="border-light">Value Type</th>
+                        <th class="border-light">Default Value</th>
+                        <th class="border-light">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">rg-show-page-size-nav</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">bool</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">false</code></td>
+                        <td class="border-dark">show/hide pagesize dropdown</td>
+                    </tr>
+                    <tr>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">rg-show-first-last-button</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">bool</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">false</code></td>
+                        <td class="border-dark">show/hide first page and last page button</td>
+                    </tr>
+                    <tr>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">rg-show-page-of-pages-box</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">bool</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">false</code></td>
+                        <td class="border-dark">show/hide page of pages box</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <h1 class="font-weight-bolder"> Query String Attributes</h1>
+            <hr />
+            <table class="table table-bordered border-2 border-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="border-light">Attribute Name</th>
+                        <th class="border-light">Value Type</th>
+                        <th class="border-light">Default Value</th>
+                        <th class="border-light">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">rg-query-string-key-page-no</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">string</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">pageindex</code></td>
+                        <td class="border-dark">key for current page number query string</td>
+                    </tr>
+                    <tr>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">rg-query-string-key-page-size</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">string</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">pagesize</code></td>
+                        <td class="border-dark">key for pagesize number query string</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <h1 class="font-weight-bolder"> Text Attributes</h1>
+            <hr />
+            <table class="table table-bordered border-2 border-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="border-light">Attribute Name</th>
+                        <th class="border-light">Value Type</th>
+                        <th class="border-light">Default Value</th>
+                        <th class="border-light">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">rg-page-size-label-text</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">string</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">pagesize</code></td>
+                        <td class="border-dark">text for page size label</td>
+                    </tr>
+                    <tr>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">rg-page-of-pages-text</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">string</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">page,of</code></td>
+                        <td class="border-dark">text for page of pages box</td>
+                    </tr>
+                    <tr>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">rg-number-format</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">string</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">Default</code></td>
+                        <td class="border-dark">see <a class="text-hover-warning font-weight-bolder" style="color:#d18700;" asp-action="NumberFormats" asp-controller="Home">number formats</a> for more details</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <h1 class="font-weight-bolder"> Styling Attributes</h1>
+            <hr />
+            <table class="table table-bordered border-2 border-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="border-light">Attribute Name</th>
+                        <th class="border-light">Value Type</th>
+                        <th class="border-light">Default Value</th>
+                        <th class="border-light">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">rg-render-mode</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">Rg.TagHelpers.RenderMode</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">Bootstrap4</code></td>
+                        <td class="border-dark">bootstrap supporteded version. Bootstrap4 & Bootstrap5</td>
+                    </tr>
+                    <tr>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">rg-rtl-direction</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">bool</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">false</code></td>
+                        <td class="border-dark">set rtl direction</td>
+                    </tr>
+                    <tr>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">rg-dark-mode</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">bool</code></td>
+                        <td class="border-dark"><code class="bg-gray-800 font-weight-bolder" style="font-size:100%; padding:0.5rem;">false</code></td>
+                        <td class="border-dark">set dark theme</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
