@@ -1,6 +1,21 @@
 # Rg.TagHelpers
 ## what is it?
 useful TagHelpers for any ASP.NET Core project.
+
+### Installation:
+Install via nuget package manager :
+````html
+PM> Install-Package Rg.TagHelpers -Version 1.2.0
+````
+Then add to _ViewImports.cshtml :
+````html
+ @addTagHelper *, Rg.TagHelpers
+````
+Then Add RgPagination.css Link To <Head> Section HTML Page.
+````html
+<Link href="~/css/RgPagination.css" rel="stylesheet"/>
+````
+![PagingTagHelper default](https://raw.githubusercontent.com/raminghaffari/upload/main/taghelper/RgPaginationCss.png)            
 ### Pagination TagHelper
 Create a pagination control styled with bootstrap 4.x && 5.x using simple html tag
 ````html
