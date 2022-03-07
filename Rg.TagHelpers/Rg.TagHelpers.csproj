@@ -6,7 +6,7 @@
     <Authors>Ramin Ghaffari</Authors>
     <Description>Useful Tag Helper For Asp .net Projects</Description>
     <Copyright>@2022</Copyright>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
