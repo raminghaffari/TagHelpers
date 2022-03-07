@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rg.TagHelpers", "Rg.TagHelpers\Rg.TagHelpers.csproj", "{042ACF05-562F-4187-A307-F0DAE1C7033F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleProject", "ExampleProject\ExampleProject.csproj", "{6CE38D28-9952-4031-84B0-0324EDD6F6C7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Docs", "Docs\Docs.csproj", "{968E8245-2C9A-42D5-A7C0-907F7CF09D7E}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{042ACF05-562F-4187-A307-F0DAE1C7033F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{042ACF05-562F-4187-A307-F0DAE1C7033F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{042ACF05-562F-4187-A307-F0DAE1C7033F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6CE38D28-9952-4031-84B0-0324EDD6F6C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6CE38D28-9952-4031-84B0-0324EDD6F6C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6CE38D28-9952-4031-84B0-0324EDD6F6C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6CE38D28-9952-4031-84B0-0324EDD6F6C7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{968E8245-2C9A-42D5-A7C0-907F7CF09D7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{968E8245-2C9A-42D5-A7C0-907F7CF09D7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{968E8245-2C9A-42D5-A7C0-907F7CF09D7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
