@@ -6,7 +6,7 @@ Create a pagination control styled with bootstrap 4.x && 5.x using simple html t
 ````html
 <Paging-Tag rg-total-record="@Model.totalrow"
             rg-page-index="@Model.pageindex"
-            rg-page-size="@Model.pagesize"
+            rg-page-size="@Model.pagesize">
 </Paging-Tag>
 ````
 
