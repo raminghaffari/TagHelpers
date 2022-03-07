@@ -200,7 +200,7 @@
 
 
             //--> Row-In-Main-Div
-            var Rowdiv = _utilities.Create_Tag_div("row align-items-center");
+            var Rowdiv = _utilities.Create_Tag_div("row mx-0 align-items-center");
 
             ////----> dark-mode
             if (RgDarkMode)

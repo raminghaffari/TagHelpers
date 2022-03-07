@@ -2,14 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Authors>Ramin Ghaffari</Authors>
+    <Description>Useful Tag Helper For Asp .net Projects</Description>
+    <Copyright>@2022</Copyright>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="css\RgPagination.css" />
+    <None Remove="wwwroot\css\RgPagination.css" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="css\RgPagination.css">
+    <Content Include="wwwroot\css\RgPagination.css">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>

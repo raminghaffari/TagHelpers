@@ -18,4 +18,11 @@
     <Folder Include="Areas\bootstrap5\Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\css\RgPagination.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
