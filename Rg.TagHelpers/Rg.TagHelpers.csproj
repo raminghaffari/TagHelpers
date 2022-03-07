@@ -7,6 +7,10 @@
     <Description>Useful Tag Helper For Asp .net Projects</Description>
     <Copyright>@2022</Copyright>
     <Version>1.2.0</Version>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/raminghaffari/TagHelpers</RepositoryUrl>
+    <PackageTags>V1.2</PackageTags>
+    <PackageReleaseNotes>V1.2</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
