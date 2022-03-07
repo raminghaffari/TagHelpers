@@ -1,0 +1,103 @@
+﻿@addTagHelper *, Rg.TagHelpers
+@model paginateddto
+
+@{
+    ViewData["Title"] = "Pagination TagHelper Online Demo";
+}
+
+@section Style{
+    <link href="~/css/RgPagination.css" rel="stylesheet" />
+}
+
+<div class="card card-custom card-stretch bg-gray-300" id="kt_page_stretched_card">
+    <div class="card-header border-dark">
+        <div class="card-title">
+            <h2 class="card-label mr-0">Pagination TagHelper</h2>
+            <div class="mb-0 mt-9">
+                <p style="font-size:15px;">
+                    <em class="font-weight-bolder">
+                        By
+                        <a href="https://github.com/raminghaffari" class="text-warning strokeme">Ramin Ghaffari</a>
+                    </em>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="card-collapsed">
+            <h1 class="font-weight-bolder"> Default Theme</h1>
+            <hr />
+            <div class="card" style="max-width:100%;">
+                <table class="table table-hover table-bordered text-center" style="width:100%" role="grid">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th class="border-light" scope="col">Id</th>
+                            <th class="border-light" scope="col">Name</th>
+                            <th class="border-light" scop="col">Family</th>
+                            <th class="border-light" scop="col">Phone Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Humen)
+                        {
+                            <tr>
+                                <th class="bg-dark text-light" scope="row">@item.Id</th>
+                                <td>@item.Name</td>
+                                <td>@item.Family</td>
+                                <td>@item.phonenumber</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <Paging-Tag rg-total-record="@Model.totalrow"
+                            rg-page-index="@Model.pageindex"
+                            rg-page-size="@Model.pagesize"
+                            rg-show-page-of-pages-box="true"
+                            rg-show-page-size-nav="true"
+                            rg-show-first-last-button="true">
+                </Paging-Tag>
+            </div>
+            <br />
+            <br />
+            <h1 class="font-weight-bolder"> Dark Theme</h1>
+            <hr />
+            <p><em>Dark Theme With RTL Direction And Persian Language Support</em></p>
+            <div class="card bg-dark" style="max-width:100%;">
+                <table class="table table-hover table-bordered text-center rtldirection text-light" style="width:100%" role="grid">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="border-dark" scope="col">آیدی</th>
+                            <th class="border-dark" scope="col">نام</th>
+                            <th class="border-dark" scop="col">نام خانوادگی</th>
+                            <th class="border-dark" scop="col">تلفن</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Humen)
+                        {
+                            <tr>
+                                <th class="bg-light text-dark border-dark" scope="row">@item.Id</th>
+                                <td>@item.Name</td>
+                                <td>@item.Family</td>
+                                <td>@item.phonenumber</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <Paging-Tag rg-total-record="@Model.totalrow"
+                            rg-page-index="@Model.pageindex"
+                            rg-page-size="@Model.pagesize"
+                            rg-show-page-of-pages-box="true"
+                            rg-show-page-size-nav="true"
+                            rg-show-first-last-button="true"
+                            rg-dark-mode="true"
+                            rg-rtl-direction="true"
+                            rg-number-format="Farsi"
+                            rg-page-of-pages-text="صفحه,از"
+                            rg-page-size-label-text="نمایش">
+                </Paging-Tag>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+
+<html direction="ltr" dir="ltr" style="direction: ltr">
+<!--begin::Head-->
+
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Ramin Ghaffari</title>
+    <meta name="description" content="usefull taghelpers for every Asp.Net Core project" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--begin::Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <!--end::Fonts-->
+    <!--begin::Global Styles(used by all pages)-->
+    <link href="~/plugins/global/plugins.bundle.css" asp-append-version="true" rel="stylesheet" />
+    <link href="~/css/style.bundle.css" asp-append-version="true" rel="stylesheet" />
+    <!--end::Global Styles-->
+    <link href="~/css/themes/layout/header/base/dark.css" asp-append-version="true" rel="stylesheet" />
+    <link href="~/css/themes/layout/aside/dark.css" asp-append-version="true" rel="stylesheet" />
+    <link href="~/css/themes/layout/header/base/dark.css" asp-append-version="true" rel="stylesheet" />
+    <link href="~/plugins/custom/prismjs/prismjs.bundle.css" asp-append-version="true" rel="stylesheet" />
+    @await RenderSectionAsync("Style", required: false)
+    <link rel="shortcut icon" href="~/favicon.ico" />
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+
+<body id="kt_body"
+      class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+
+    <!--begin::Main-->
+    <!--begin::Header Mobile-->
+    <div id="kt_header_mobile" class="header-mobile align-items-center  header-mobile-fixed ">
+        <!--begin::Logo-->
+        <!--begin::Version DropDown-->
+        <div class="dropdown">
+            <button class="btn bg-gray-900 btn-lg dropdown-toggle text-light" type="button" id="VersiondropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Rg.TagHelpers V1.0
+            </button>
+            <div class="dropdown-menu bg-gray-900" aria-labelledby="VersiondropdownMenu">
+                <a class="dropdown-item text-light bg-hover-gray-600 text-hover-dark" href="#">V1.0</a>
+            </div>
+        </div>
+        <!--end::Version DropDown-->
+        <!--end::Logo-->
+        <!--begin::Toolbar-->
+        <div class="d-flex align-items-center">
+            <!--begin::Aside Mobile Toggle-->
+            <button class="btn p-0 burger-icon burger-icon-left" id="kt_aside_mobile_toggle">
+                <span></span>
+            </button>
+            <!--end::Aside Mobile Toggle-->
+        </div>
+        <!--end::Toolbar-->
+    </div>
+    <!--end::Header Mobile-->
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Page-->
+        <div class="d-flex flex-row flex-column-fluid page">
+
+            <!--begin::Aside-->
+            <div class="aside aside-left  aside-fixed  d-flex flex-column flex-row-auto" id="kt_aside">
+                <!--begin::Brand-->
+                <div class="brand flex-column-auto " id="kt_brand">
+                    <!--begin::Version DropDown-->
+                    <div class="dropdown">
+                        <button class="btn bg-gray-800 btn-lg dropdown-toggle text-light" type="button" id="VersiondropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Rg.TagHelpers V1.0
+                        </button>
+                        <div class="dropdown-menu bg-gray-800" aria-labelledby="VersiondropdownMenu">
+                            <a class="dropdown-item text-light bg-hover-gray-600 text-hover-dark" href="#">V1.0</a>
+                        </div>
+                    </div>
+                    <!--end::Version DropDown-->
+                    <!--begin::Toggle-->
+                    <button class="brand-toggle btn btn-sm px-0" id="kt_aside_toggle">
+                        <span class="svg-icon svg-icon svg-icon-xl">
+                            <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Angle-double-left.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                                                                      width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <polygon points="0 0 24 0 24 24 0 24" />
+                                    <path d="M5.29288961,6.70710318 C4.90236532,6.31657888 4.90236532,5.68341391 5.29288961,5.29288961 C5.68341391,4.90236532 6.31657888,4.90236532 6.70710318,5.29288961 L12.7071032,11.2928896 C13.0856821,11.6714686 13.0989277,12.281055 12.7371505,12.675721 L7.23715054,18.675721 C6.86395813,19.08284 6.23139076,19.1103429 5.82427177,18.7371505 C5.41715278,18.3639581 5.38964985,17.7313908 5.76284226,17.3242718 L10.6158586,12.0300721 L5.29288961,6.70710318 Z"
+                                          fill="#000000" fill-rule="nonzero"
+                                          transform="translate(8.999997, 11.999999) scale(-1, 1) translate(-8.999997, -11.999999) " />
+                                    <path d="M10.7071009,15.7071068 C10.3165766,16.0976311 9.68341162,16.0976311 9.29288733,15.7071068 C8.90236304,15.3165825 8.90236304,14.6834175 9.29288733,14.2928932 L15.2928873,8.29289322 C15.6714663,7.91431428 16.2810527,7.90106866 16.6757187,8.26284586 L22.6757187,13.7628459 C23.0828377,14.1360383 23.1103407,14.7686056 22.7371482,15.1757246 C22.3639558,15.5828436 21.7313885,15.6103465 21.3242695,15.2371541 L16.0300699,10.3841378 L10.7071009,15.7071068 Z"
+                                          fill="#000000" fill-rule="nonzero" opacity="0.3"
+                                          transform="translate(15.999997, 11.999999) scale(-1, 1) rotate(-270.000000) translate(-15.999997, -11.999999) " />
+                                </g>
+                            </svg>
+                            <!--end::Svg Icon-->
+                        </span>
+                    </button>
+                    <!--end::Toolbar-->
+                </div>
+                <!--end::Brand-->
+                <!--begin::Aside Menu-->
+                <div class="aside-menu-wrapper flex-column-fluid" id="kt_aside_menu_wrapper">
+
+                    <!--begin::Menu Container-->
+                    <div id="kt_aside_menu" class="aside-menu my-4 " data-menu-vertical="1" data-menu-scroll="1"
+                         data-menu-dropdown-timeout="500">
+                        <!--begin::Menu Nav-->
+                        <ul class="menu-nav ">
+                            <li class="menu-section ">
+                                <a asp-action="Index" asp-controller="Home">
+                                    <h1 class="menu-text text-light text-capitalize" style="font-size:1.1rem;">Pagination TagHelper</h1>
+                                    <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+                                </a>
+                            </li>
+                            <li class="menu-item" aria-haspopup="true">
+                                <a asp-action="BasicSetup" asp-controller="Home" class="menu-link">
+                                    <i class="menu-icon flaticon-interface-8"></i>
+                                    <span class="menu-text">Basic Setup</span>
+                                </a>
+                            </li>
+                            <li class="menu-item " aria-haspopup="true">
+                                <a asp-action="Attributes" asp-controller="Home" class="menu-link">
+                                    <i class="menu-icon flaticon-list-3"></i>
+                                    <span class="menu-text">Attributes</span>
+                                </a>
+                            </li>
+                            <li class="menu-item " aria-haspopup="true">
+                                <a asp-action="NumberFormats" asp-controller="Home" class="menu-link">
+                                    <i class="menu-icon flaticon-edit"></i>
+                                    <span class="menu-text">number Formats</span>
+                                </a>
+                            </li>
+                            <li class="menu-item " aria-haspopup="true">
+                                <a asp-action="Theme" asp-controller="Home" class="menu-link">
+                                    <i class="menu-icon flaticon-graphic"></i>
+                                    <span class="menu-text">Theme</span>
+                                </a>
+                            </li>
+                            <li class="menu-item " aria-haspopup="true">
+                                <a asp-action="PaginationTagHelper" asp-controller="Demo" class="menu-link">
+                                    <i class="menu-icon flaticon-globe"></i>
+                                    <span class="menu-text">Online Demo</span>
+                                </a>
+                            </li>
+                            <li class="menu-section ">
+                                <span class="menu-text">
+                                    -----------------------------
+                                </span>
+                                <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+                            </li>
+                            <li class="menu-item text-light" aria-haspopup="true">
+                                <span class="text-center menu-text">
+                                    <a href="https://www.instagram.com/raminghaffarii" target="_blank" class="menu-link flex-center pl-2 text-light">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://twitter.com/Raminghaffarii" target="_blank" class="menu-link flex-center pl-2 text-light">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.youtube.com/channel/UCfftInTQWLh_5oXjf1e2LxA" target="_blank" class="menu-link flex-center pl-2 text-light">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                                            <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://github.com/raminghaffari" target="_blank" class="menu-link flex-center pl-2 text-light">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/raminghaffarii/" target="_blank" class="menu-link flex-center pl-2 text-light">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                                        </svg>
+                                    </a>
+                                </span>
+                            </li>
+                        </ul>
+                        <!--end::Menu Nav-->
+                    </div>
+                    <!--end::Menu Container-->
+                </div>
+                <!--end::Aside Menu-->
+            </div>
+            <!--end::Aside-->
+            <!--begin::Wrapper-->
+            <div class="d-flex bg-gray-800 flex-column flex-row-fluid wrapper" id="kt_wrapper">
+                <!--begin::Header-->
+                <div id="kt_header" class="header  header-fixed ">
+                    <!--begin::Container-->
+                    <div class=" container-fluid  d-flex align-items-stretch justify-content-between">
+                        <!--begin::Header Menu Wrapper-->
+                        <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+                            <!--begin::Header Menu-->
+                            <div id="kt_header_menu"
+                                 class="header-menu header-menu-mobile  header-menu-layout-default ">
+                            </div>
+                            <!--end::Header Menu-->
+                        </div>
+                        <!--end::Header Menu Wrapper-->
+                        <!--begin::Topbar-->
+                        <div class="topbar">
+                            <!--begin::Search-->
+                            <div class="dropdown" id="kt_quick_search_toggle">
+                                <!--begin::Toggle-->
+                                <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
+                                    <div class="btn btn-icon btn-clean btn-lg btn-dropdown mr-1">
+                                        <span class="svg-icon svg-icon-xl svg-icon-primary">
+                                            <!--begin::Svg Icon | path:assets/media/svg/icons/عمومی/جستجو.svg--><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+                                                                                                                     viewBox="0 0 24 24" version="1.1">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <rect x="0" y="0" width="24" height="24" />
+                                                    <path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z"
+                                                          fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                                    <path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z"
+                                                          fill="#000000" fill-rule="nonzero" />
+                                                </g>
+                                            </svg>
+                                            <!--end::Svg Icon-->
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--end::Toggle-->
+                                <!--begin::دراپ دان-->
+                                <div class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-anim-up dropdown-menu-lg">
+                                    <div class="quick-search quick-search-dropdown" id="kt_quick_search_dropdown">
+                                        <!--begin:Form-->
+                                        <form method="get" class="quick-search-form">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <span class="svg-icon svg-icon-lg">
+                                                            <!--begin::Svg Icon | path:assets/media/svg/icons/عمومی/جستجو.svg--><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                                                                                                     height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                <g stroke="none" stroke-width="1" fill="none"
+                                                                   fill-rule="evenodd">
+                                                                    <rect x="0" y="0" width="24" height="24" />
+                                                                    <path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z"
+                                                                          fill="#000000" fill-rule="nonzero"
+                                                                          opacity="0.3" />
+                                                                    <path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z"
+                                                                          fill="#000000" fill-rule="nonzero" />
+                                                                </g>
+                                                            </svg>
+                                                            <!--end::Svg Icon-->
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="جستجو..." />
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">
+                                                        <i class="quick-search-close ki ki-close icon-sm text-muted"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <!--end::Form-->
+                                        <!--begin::Scroll-->
+                                        <div class="quick-search-wrapper scroll" data-scroll="true" data-height="325"
+                                             data-mobile-height="200">
+                                        </div>
+                                        <!--end::Scroll-->
+                                    </div>
+                                </div>
+                                <!--end::دراپ دان-->
+                            </div>
+                            <!--end::Search-->
+                        </div>
+                        <!--end::Topbar-->
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Header-->
+                <!--begin::Content-->
+                <div class="content  d-flex flex-column flex-column-fluid" id="kt_content">
+                    <!--begin::SubHeader-->
+                    <div class="subheader py-2 py-lg-6  subheader-solid bg-gray-300 " id="kt_subheader">
+                        <div class=" container-fluid  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                            <div class="d-flex align-items-center flex-wrap mr-1">
+                                <div class="d-flex align-items-baseline flex-wrap mr-1">
+                                    <!--begin::Page Title-->
+                                    <h2 class="text-dark font-weight-bold">
+                                        <i class="ki ki-solid-plus ki-bold-triangle-right text-warning icon-2x"></i>
+                                        @ViewData["Title"]
+                                    </h2>
+                                    <!--end::Page Title-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::SubHeader-->
+                    <!--begin::Entry-->
+                    <div class="d-flex flex-column-fluid">
+                        <!--begin::Container-->
+                        <div class=" container ">
+                            @RenderBody()
+                        </div>
+                        <!--end::Container-->
+                    </div>
+                    <!--end::Entry-->
+                </div>
+                <!--end::Content-->
+                <!--begin::Footer-->
+                <div class="footer bg-gray-900 py-4 d-flex flex-lg-column " id="kt_footer">
+                    <!--begin::Container-->
+                    <div class=" container-fluid  d-flex flex-column flex-md-row align-items-center justify-content-between">
+                        <!--begin::کپی رایت-->
+                        <div class="text-light order-2 order-md-1">
+                            <span class="text-muted font-weight-bold mr-2">2022&copy;</span>
+                            <a href="https://github.com/raminghaffari" target="_blank"
+                               class="text-light text-hover-primary">Ramin Ghaffari</a>
+                        </div>
+                        <!--end::کپی رایت-->
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Footer-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+        <!--end::Page-->
+    </div>
+    <!--end::Main-->
+    <!--begin::Global Bundle(used by all pages)-->
+    <script type="text/javascript" src="~/plugins/global/plugins.bundle.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/js/scripts.bundle.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/plugins/custom/prismjs/prismjs.bundle.js" asp-append-version="true"></script>
+    <!--end::Global Bundle-->
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+<!--end::Body-->
+
+</html>

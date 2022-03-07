@@ -1,0 +1,210 @@
+/*
+	===============================
+			@Import	Function
+	===============================
+*/
+/*
+	===============================
+			@Import	Mixins
+	===============================
+*/
+/*
+    ============================
+        Pagination container
+    =============================
+*/
+
+
+:root {
+    --text-color: #3b3f5c;
+    --li-bg-color: #e0e6ed;
+    --text-hover-color: #1b55e2;
+    --bgcolor: #fff;
+    --boxshadowcolor: rgba(0, 0, 0, 0.1);
+    --bordercolor: rgb(169 165 165 / 0.58);
+    --page-link-bgcolor: #fff;
+    --page-link-bordercolor: #dee2e6;
+    --page-link-bgcolor-hover: rgb(219 219 219);
+    --page-link-active-bgcolor: #007bff;
+    --page-link-active-bordercolor: #007bff;
+    --text-out-color: #3b3f5c;
+}
+
+
+
+.pagination-dark {
+    --text-color: #dee2e6;
+    --li-bg-color: rgb(169 165 165 / 0.58);
+    --text-hover-color: #1b55e2;
+    --bgcolor: #151515;
+    --boxshadowcolor: rgb(169 169 169 / 0.74);
+    --bordercolor: rgb(169 165 165 / 0.58);
+    --page-link-bgcolor: #151515;
+    --page-link-bordercolor: rgb(169 165 165 / 0.58);
+    --page-link-bgcolor-hover: rgb(219 219 219);
+    --page-link-active-bgcolor: #007bff;
+    --page-link-active-bordercolor: #007bff;
+    --text-out-color: #dee2e6;
+}
+
+.paginating-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+    .paginating-container .prev svg, .paginating-container .next svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .paginating-container .pagination {
+        margin-bottom: 0;
+    }
+
+    .paginating-container li {
+        font-weight: 600;
+        color: var(--text-color);
+        border-radius: 4px;
+        box-shadow: 0px 5px 20px 0 var(--boxshadowcolor);
+    }
+
+        .paginating-container li a {
+            padding: 10px 15px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+    .paginating-container li {
+        margin-left: 4px;
+        margin-top: 4px;
+    }
+/* 
+    Solid Style
+*/
+.pagination-solid li {
+    background-color: var(--li-bg-color);
+}
+
+    .pagination-solid li:hover a {
+        color: var(--text-hover-color);
+    }
+
+    .pagination-solid li.active {
+        color: var(--bgcolor);
+    }
+
+        .pagination-solid li a.active:hover, .pagination-solid li.active a {
+            color: var(--bgcolor);
+        }
+
+.pagination-solid .prev {
+    background-color: var(--li-bg-color);
+}
+
+    .pagination-solid .prev:hover {
+        background-color: var(--text-hover-color);
+    }
+
+    .pagination-solid .prev:not(.disabled) hover a, .pagination-solid .prev:not(.disabled) hover svg {
+        color: var(--text-hover-color);
+    }
+
+
+.pagination-solid .next {
+    background-color: var(--li-bg-color);
+}
+
+    .pagination-solid .next:hover {
+        background-color: var(--text-hover-color);
+    }
+
+    .pagination-solid .next:not(.disabled) hover a, .pagination-solid .next:not(.disabled) hover svg {
+        color: var(--text-hover-color);
+    }
+
+.pagination-solid .page-item.disabled .page-link {
+    background-color: var(--page-link-bgcolor);
+    border-color: var(--page-link-bordercolor);
+}
+
+.pagination-solid .page-item .page-link {
+    background-color: var(--page-link-bgcolor);
+    border-color: var(--page-link-bordercolor);
+}
+
+    .pagination-solid .page-item .page-link:hover {
+        background-color: var(--page-link-bgcolor-hover);
+    }
+
+.pagination-solid .page-item.active .page-link {
+    background-color: var(--page-link-active-bgcolor);
+    border-color: var(--page-link-active-bordercolor);
+}
+
+/*    
+    ===================
+        Pagination-PageSize-Btn
+    ===================
+*/
+
+.pagination-pagesize-btn label {
+    color: var(--text-out-color);
+    font-weight: 600;
+    padding: 5px !important;
+}
+
+.pagination-pagesize-btn .page-size-btn {
+    margin: 4px 0px;
+    padding: 10px 20px !important;
+    font-weight: 600;
+    background-color: var(--bgcolor);
+    color: var(--text-color);
+    border: .5px solid var(--bordercolor);
+    border-radius: 4px;
+    box-shadow: 0px 5px 20px 0 var(--boxshadowcolor);
+    direction: ltr !important;
+}
+
+    .pagination-pageSize-btn .page-size-btn :hover {
+        color: var(--text-hover-color);
+        background-color: var(--text-color) !important;
+    }
+
+    .pagination-pageSize-btn .page-size-btn a {
+        contain-intrinsic-size: inherit;
+    }
+
+.pagination-pagesize-dropdown {
+    min-width: 60px !important;
+    text-align: center !important;
+    background-color: var(--bgcolor) !important;
+}
+
+    .pagination-pagesize-dropdown .dropdown-item {
+        color: var(--text-color);
+    }
+
+        .pagination-pagesize-dropdown .dropdown-item:hover {
+            color: var(--text-hover-color);
+        }
+/*    
+    ===================
+        Pagination-Box
+    ===================
+*/
+.pagination-box {
+    margin: 4px 0px;
+    padding: 10px 0px;
+    font-weight: 600;
+    background-color: var(--bgcolor);
+    color: var(--text-color);
+    border: .5px solid var(--bordercolor);
+    border-radius: 4px;
+    box-shadow: 0px 5px 20px 0 var(--boxshadowcolor);
+    text-align: center;
+}
+
+.rtldirection {
+    direction: rtl;
+}
