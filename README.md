@@ -6,7 +6,7 @@ useful TagHelpers for any ASP.NET Core project.
 Follow Link : [Document](https://docs.raminghaffari.ir "Click for redirect to document page")
 
 ## Online Demo
-Follow Link : [Document](https://docs.raminghaffari.ir/Demo/PaginationTagHelper "Click for redirect to Online Demo")
+Follow Link : [Online Demo](https://docs.raminghaffari.ir/Demo/PaginationTagHelper "Click for redirect to Online Demo")
 
 ### Installation:
 Install via nuget package manager :
