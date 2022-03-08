@@ -23,26 +23,6 @@ namespace Docs.Controllers
             return View();
         }
 
-        public IActionResult BasicSetup()
-        {
-            return View();
-        }
-
-        public IActionResult Attributes()
-        {
-            return View();
-        }
-
-        public IActionResult NumberFormats()
-        {
-            return View();
-        }
-
-        public IActionResult Theme()
-        {
-            return View();
-        }
-
         public IActionResult Privacy()
         {
             return View();

@@ -1,75 +1,96 @@
-﻿@{
-    ViewData["Title"] = "Pagination TagHelper";
+﻿
+@{
+    Layout = null;
 }
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+
+    <title>Ramin Ghaffari - Coming Soon</title>
+
+    <!-- Loading third party fonts -->
+    <link href="~/ComingSoon/fonts/font-awesome.min.css" rel="stylesheet" />
+    <!-- Loading main css file -->
+    <link href="~/ComingSoon/style.css" rel="stylesheet" />
+
+</head>
 
 
+<body>
 
-<div class="card card-custom card-stretch bg-gray-300" id="kt_page_stretched_card">
-    <div class="card-header border-dark">
-        <div class="card-title">
-            <h2 class="card-label mr-0">Pagination TagHelper</h2>
-            <div class="mb-0 mt-9">
-                <p style="font-size:15px;">
-                    <em class="font-weight-bolder">
-                        By
-                        <a href="https://github.com/raminghaffari" class="text-warning strokeme">Ramin Ghaffari</a>
-                    </em>
-                </p>
-            </div>
-        </div>
+    <div class="site-content">
+
+        <header class="site-header">
+            <div class="container shrinked">
+                <a asp-action="Index" asp-controller="Docs" class="button">Documents</a>
+                <h1 class="logo"><a href="index.html">Ramin Ghaffari</a></h1>
+                <a href="#" class="button">Contact Us</a>
+            </div> <!-- .container -->
+        </header> <!-- .site-header -->
+
+        <main class="main-content">
+            <div class="container shrinked">
+                <h1 class="section-title center-aligned">
+                    We are preparing something new. <br> <span>Stay tuned!</span>
+                </h1>
+
+                <div class="counter-wrap" data-date-target="March 21, 2022 10:00:00">
+                    <div class="counter days">
+                        <div class="number">00</div>
+                        <div class="caption">Days</div>
+                    </div> <!-- .counter -->
+                    <div class="counter hours">
+                        <div class="number">00</div>
+                        <div class="caption">Hours</div>
+                    </div> <!-- .counter -->
+                    <div class="counter minutes">
+                        <div class="number">00</div>
+                        <div class="caption">Minutes</div>
+                    </div> <!-- .counter -->
+                    <div class="counter seconds">
+                        <div class="number">00</div>
+                        <div class="caption">Seconds</div>
+                    </div> <!-- .counter -->
+                </div> <!-- .counter-wrap -->
+
+            </div> <!-- .container -->
+        </main> <!-- .main-content -->
+
+        <footer class="site-footer">
+            <div class="container shrinked">
+
+                <form action="#" class="subscribe-form">
+                    <input type="text" placeholder="Enter your email to join our newsletter">
+                    <i class="fa fa-envelope"></i>
+                    <input type="submit" value="Subscribe!">
+                </form> <!-- .subscribe-form -->
+
+                <div class="social-links">
+                    <a target="_blank" href="https://www.instagram.com/raminghaffarii"><i class="fa fa-instagram"></i></a>
+                    <a target="_blank" href="https://twitter.com/Raminghaffarii"><i class="fa fa-twitter"></i></a>
+                    <a target="_blank" href="https://www.youtube.com/channel/UCfftInTQWLh_5oXjf1e2LxA"><i class="fa fa-youtube"></i></a>
+                    <a target="_blank" href="https://github.com/raminghaffari"><i class="fa fa-github"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/raminghaffarii/"><i class="fa fa-linkedin"></i></a>
+                </div> <!-- .social-links -->
+
+                <div class="colophon">
+                    &commat; Copyright 2022 <a href="http://raminghaffari.ir">Raminghaffari</a> . All right reserved
+                </div>
+
+            </div> <!-- .container -->
+        </footer> <!-- .site-footer -->
+
     </div>
 
-    <div class="card-body">
-        <div class="card-scroll">
-            <h1 class="font-weight-bolder"> What is it?</h1>
-            <hr />
-            <p><em>Create a pagination control styled with bootstrap 4.x && 5.x using simple html tag</em></p>
-            <br />
-            <h1 class="font-weight-bolder"> Installation:</h1>
-            <hr />
-            <p><em>Install via nuget package manager :</em></p>
-            <pre class="language-html">
-            <code class="language-html">PM> Install-Package Rg.TagHelpers -Version 1.2.0</code>
-            </pre>
-            <p><em>Then add to _ViewImports.cshtml :</em></p>
-            <pre class="language-html"> <span class="text-danger">&commat;addTagHelper </span>*, Rg.TagHelpers</pre>
-            <p><em>Then Add RgPagination.css Link To <code style="font-size:100%;">&#60;Head&#62;</code> Section HTML Page.</em></p>
-            <pre class="language-html">
-            <code class="language-html">
-            <span class="token tag">
-            <span class="token tag">
-            <span class="token punctuation">&lt;</span>Link</span><span class="token attr-name"> href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>~/css/RgPagination.css<span class="token punctuation">"</span></span><span class="token attr-name"> rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span><span class="token punctuation">&sol;&gt;</span>
-                </span>
-            </code></pre>
-            <br />
-            <p>
-                <a href="https://github.com/raminghaffari/TagHelpers">
-                    <img style="max-width:100%;" src="~/Img/RgPaginationCss.png"
-                         alt="PaginationTaghelper DarkMode" />
-                </a>
-            </p>
-            <br />
-            <h1 class="font-weight-bolder"> Example:</h1>
-            <hr />
-            <p><em>Dark Mode :</em></p>
-            <p>
-                <a href="https://github.com/raminghaffari/TagHelpers">
-                    <img style="max-width:100%;" src="~/Img/paginationdarkmode.png"
-                         alt="PaginationTaghelper DarkMode" />
-                </a>
-            </p>
-            <p><em>RTL Direction With Persian Language :</em></p>
-            <p>
-                <a href="https://github.com/raminghaffari/TagHelpers">
-                    <img style="max-width:100%;" src="~/Img/paginationlightmode.png"
-                         alt="PaginationTaghelper RTLDrirection PersianLanguage" />
-                </a>
-            </p>
-            <br />
-            <h1 class="font-weight-bolder"> Online Demo:</h1>
-            <hr />
-            <p><em>Follow Link : <a class="text-hover-warning font-weight-bolder" style="color:#d18700;" asp-action="PaginationTagHelper" asp-controller="Demo">Online Demo</a></em></p>
-        </div>
-    </div>
-</div>
+    <script src="~/ComingSoon/js/jquery-1.11.1.min.js"></script>
+    <script src="~/ComingSoon/js/plugins.js"></script>
+    <script src="~/ComingSoon/js/app.js"></script>
+
+</body>
+
+</html>
